@@ -1,0 +1,82 @@
+[
+  {
+    "input": {
+      "index": 0,
+      "width": 10
+    },
+    "output": [
+      0,
+      0
+    ]
+  },
+  {
+    "input": {
+      "index": 5,
+      "width": 10
+    },
+    "output": [
+      5,
+      0
+    ]
+  },
+  {
+    "input": {
+      "index": 10,
+      "width": 10
+    },
+    "output": [
+      0,
+      1
+    ]
+  },
+  {
+    "input": {
+      "index": 15,
+      "width": 10
+    },
+    "output": [
+      5,
+      1
+    ]
+  },
+  {
+    "input": {
+      "index": 99,
+      "width": 10
+    },
+    "output": [
+      9,
+      9
+    ]
+  },
+  {
+    "input": {
+      "index": 0,
+      "width": 100
+    },
+    "output": [
+      0,
+      0
+    ]
+  },
+  {
+    "input": {
+      "index": 50,
+      "width": 100
+    },
+    "output": [
+      50,
+      0
+    ]
+  },
+  {
+    "input": {
+      "index": 150,
+      "width": 100
+    },
+    "output": [
+      50,
+      1
+    ]
+  }
+]
