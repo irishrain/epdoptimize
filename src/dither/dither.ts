@@ -110,13 +110,20 @@ const dither = async (sourceCanvas, canvas, opts) => {
       quantError = getQuantError(oldPixel, newPixel);
 
       diffusionMap.forEach((diffusion) => {
-        const pixelOffset =
-          diffusion.offset[0] * 4 + diffusion.offset[1] * 4 * width;
-        const pixelIndex = currentPixel + pixelOffset;
-        if (!image.data[pixelIndex]) {
-          // Check if pixel exists e.g. on the edges
+        // Calculate current pixel's x,y coordinates
+        const currentX = (currentPixel / 4) % width;
+        const currentY = Math.floor(currentPixel / 4 / width);
+
+        // Calculate target pixel's x,y coordinates
+        const targetX = currentX + diffusion.offset[0];
+        const targetY = currentY + diffusion.offset[1];
+
+        // Check if target pixel is within image bounds
+        if (targetX < 0 || targetX >= width || targetY < 0 || targetY >= image.height) {
           return;
         }
+
+        const pixelIndex = (targetY * width + targetX) * 4;
         const errorPixel = addQuantError(
           getPixelColorValues(pixelIndex, image.data),
           quantError,
